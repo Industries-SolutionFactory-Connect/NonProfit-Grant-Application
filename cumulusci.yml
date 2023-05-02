@@ -1,0 +1,28 @@
+minimum_cumulusci_version: '3.74.0'
+project:
+    name: NonProfit-Grant-Application
+    package:
+        name: NonProfit-Grant-Application
+        api_version: '55.0'
+    git:
+        default_branch: 'main'
+        prefix_feature: 'feature/'
+        prefix_beta: 'beta/'
+        prefix_release: 'release/'
+    source_format: sfdx
+
+tasks:
+    robot:
+        options:
+            suites: robot/NonProfit-Grant-Application/tests
+            options:
+                outputdir: robot/NonProfit-Grant-Application/results
+
+    robot_testdoc:
+        options:
+            path: robot/NonProfit-Grant-Application/tests
+            output: robot/NonProfit-Grant-Application/doc/NonProfit-Grant-Application_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
