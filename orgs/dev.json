@@ -1,6 +1,6 @@
 {
   "orgName": "NonProfit-Grant-Application - Dev Org",
-  "edition": "Developer",
+  "template": "0TTB0000001pgg6",
   "settings": {
     "lightningExperienceSettings": {
       "enableS1DesktopEnabled": true
