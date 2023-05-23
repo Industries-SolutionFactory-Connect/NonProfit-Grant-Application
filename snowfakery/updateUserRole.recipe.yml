@@ -1,0 +1,7 @@
+- plugin: snowfakery.standard_plugins.datasets.Dataset
+- object: User
+  fields:
+    __role: 
+      Dataset.shuffle:
+        dataset: data/Role.csv
+    UserRoleId: ${{__role.id}}

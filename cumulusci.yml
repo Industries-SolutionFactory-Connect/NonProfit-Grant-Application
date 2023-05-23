@@ -3,7 +3,7 @@ project:
     name: NonProfit-Grant-Application
     package:
         name: NonProfit-Grant-Application
-        api_version: '57.0'
+        api_version: '58.0'
     git:
         default_branch: 'main'
         prefix_feature: 'feature/'
@@ -26,3 +26,126 @@ tasks:
     run_tests:
         options:
             required_org_code_coverage_percent: 75
+
+flows:
+    dependencies:
+        steps:
+            2: 
+                task: org_settings
+                options:
+                    definition_file: orgs/dev.json
+                ui_options:
+                    name: Enabling Org Settings   
+            
+            3:
+                task: assign_permission_sets
+                options:
+                    api_names: ActionPlans, GrantmakingManager, DocumentChecklist
+                    user_alias: UUser, AUser
+                ui_options:
+                    name: Adding Permission Set to Admin User
+
+            4: 
+                task: deploy
+                options:
+                    path: force-app/custom/roles
+                ui_options:
+                    name: Deploy roles
+
+            5:
+                task: query
+                options:
+                    object: UserRole
+                    query: select Id from UserRole where Name = 'CEO'
+                    result_file: snowfakery/data/Role.csv
+
+            6:
+                task: update_data
+                options:
+                    object: User
+                    where: Profile.Name = 'System Administrator'
+                    recipe: snowfakery/updateUserRole.recipe.yml       
+
+
+    np-core-grant:
+        steps:
+            1: 
+                task: org_settings
+                options:
+                    definition_file: orgs/dev.json
+                ui_options:
+                    name: Enabling Org Settings   
+
+            2:
+                task: assign_permission_sets
+                options:
+                    api_names: ActionPlans, GrantmakingManager, DocumentChecklist
+                    user_alias: UUser, AUser
+                ui_options:
+                    name: Adding Permission Set to Admin User
+
+            3: 
+                task: deploy
+                options:
+                    path: force-app/custom/roles
+                ui_options:
+                    name: Deploy roles
+
+            4:
+                task: query
+                options:
+                    object: UserRole
+                    query: select Id from UserRole where Name = 'CEO'
+                    result_file: snowfakery/data/Role.csv
+
+            5:
+                task: update_data
+                options:
+                    object: User
+                    where: Profile.Name = 'System Administrator'
+                    recipe: snowfakery/updateUserRole.recipe.yml         
+
+            6: 
+                task: deploy
+                options:
+                    path: force-app/main/default
+                ui_options:
+                    name: Deploy Metadata
+
+            7: 
+                task: deploy
+                options:
+                    path: force-app/custom/experiences
+                ui_options:
+                    name: Deploy Experience bundle
+
+    dev_org:
+        steps:
+            3.1:
+                task: deploy
+                options:
+                    path: force-experience
+                ui_options:
+                    name: Deploy the metadata for experience bundle
+
+    
+plans:
+    install:
+        slug: install
+        title: NonProfit Grantmaking
+        tier: primary
+        is_listed: True
+        preflight_message: "This will install Non Profit Grantmaking Module"
+        post_install_message: "Thanks for installing Non Profit Grantmaking Module. "
+        error_message: "To get help with this error, go to [help.salesforce.com](https://help.salesforce.com/), find the Support & Services area and log a technical support ticket with Salesforce. Include “PMM” in the subject line and include in your comment the installation link shown here."
+        checks:
+            - when: "not org_config.is_person_accounts_enabled"
+              action: error
+              message: "Non Profit Cloud requires Person Accounts. Please activate the Person Accounts feature and try again."
+              message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
+            - when: "'GrantmakingManager' not in tasks.get_available_permission_set_licenses()"
+              action: error
+              message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
+        steps:
+            1:
+                flow: np-core-grant
