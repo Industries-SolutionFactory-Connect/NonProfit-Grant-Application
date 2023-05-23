@@ -61,42 +61,42 @@ flows:
                     api_names: ActionPlans, GrantmakingManager, DocumentChecklist
                     user_alias: UUser, AUser
                 ui_options:
-                    name: Adding Permission Set to Admin User
+                    name: Adding Permission Set to Admin User       
 
             3: 
-                task: deploy
-                options:
-                    path: force-custom/roles
-                ui_options:
-                    name: Deploy roles
-
-            4:
-                task: query
-                options:
-                    object: UserRole
-                    query: select Id from UserRole where Name = 'CEO'
-                    result_file: snowfakery/data/Role.csv
-
-            5:
-                task: update_data
-                options:
-                    object: User
-                    where: Profile.Name = 'System Administrator'
-                    recipe: snowfakery/updateUserRole.recipe.yml         
-
-            6: 
                 task: deploy
                 options:
                     path: force-app/main/default
                 ui_options:
                     name: Deploy Metadata
 
-            7: 
+            4: 
                 task: deploy
                 options:
                     path: force-custom/experiences
                 ui_options:
                     name: Deploy Experience bundle
+
+            5:
+                task: deploy
+                options:
+                    path: force-custom/appMenus
+                ui_options:
+                    name: Deploy the metadata for experience bundle                    
+            6:
+                task: query
+                options:
+                    object: UserRole
+                    query: select Id from UserRole where Name = 'CEO'
+                    result_file: snowfakery/data/Role.csv
+
+            7:
+                task: update_data
+                options:
+                    object: User
+                    where: Profile.Name = 'System Administrator'
+                    recipe: snowfakery/updateUserRole.recipe.yml  
+
 
     dev_org:
         steps:
@@ -114,21 +114,14 @@ flows:
                 ui_options:
                     name: Deploy the metadata for experience bundle
 
-            3.3: 
-                task: deploy
-                options:
-                    path: force-custom/roles
-                ui_options:
-                    name: Deploy roles
-
-            3.4:
+            3.3:
                 task: query
                 options:
                     object: UserRole
                     query: select Id from UserRole where Name = 'CEO'
                     result_file: snowfakery/data/Role.csv
 
-            3.5:
+            3.4:
                 task: update_data
                 options:
                     object: User
