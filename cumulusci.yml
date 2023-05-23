@@ -48,7 +48,7 @@ flows:
             4: 
                 task: deploy
                 options:
-                    path: force-app/custom/roles
+                    path: force-custom/roles
                 ui_options:
                     name: Deploy roles
 
@@ -87,7 +87,7 @@ flows:
             3: 
                 task: deploy
                 options:
-                    path: force-app/custom/roles
+                    path: force-custom/roles
                 ui_options:
                     name: Deploy roles
 
@@ -115,7 +115,7 @@ flows:
             7: 
                 task: deploy
                 options:
-                    path: force-app/custom/experiences
+                    path: force-custom/experiences
                 ui_options:
                     name: Deploy Experience bundle
 
