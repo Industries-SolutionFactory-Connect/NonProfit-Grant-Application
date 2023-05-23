@@ -124,7 +124,14 @@ flows:
             3.1:
                 task: deploy
                 options:
-                    path: force-experience
+                    path: force-custom/experiences
+                ui_options:
+                    name: Deploy the metadata for experience bundle
+            
+            3.2:
+                task: deploy
+                options:
+                    path: force-custom/appMenus
                 ui_options:
                     name: Deploy the metadata for experience bundle
 
