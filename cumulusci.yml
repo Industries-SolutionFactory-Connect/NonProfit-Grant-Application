@@ -43,28 +43,7 @@ flows:
                     api_names: ActionPlans, GrantmakingManager, DocumentChecklist
                     user_alias: UUser, AUser
                 ui_options:
-                    name: Adding Permission Set to Admin User
-
-            4: 
-                task: deploy
-                options:
-                    path: force-custom/roles
-                ui_options:
-                    name: Deploy roles
-
-            5:
-                task: query
-                options:
-                    object: UserRole
-                    query: select Id from UserRole where Name = 'CEO'
-                    result_file: snowfakery/data/Role.csv
-
-            6:
-                task: update_data
-                options:
-                    object: User
-                    where: Profile.Name = 'System Administrator'
-                    recipe: snowfakery/updateUserRole.recipe.yml       
+                    name: Adding Permission Set to Admin User    
 
 
     np-core-grant:
@@ -134,6 +113,27 @@ flows:
                     path: force-custom/appMenus
                 ui_options:
                     name: Deploy the metadata for experience bundle
+
+            3.3: 
+                task: deploy
+                options:
+                    path: force-custom/roles
+                ui_options:
+                    name: Deploy roles
+
+            3.4:
+                task: query
+                options:
+                    object: UserRole
+                    query: select Id from UserRole where Name = 'CEO'
+                    result_file: snowfakery/data/Role.csv
+
+            3.5:
+                task: update_data
+                options:
+                    object: User
+                    where: Profile.Name = 'System Administrator'
+                    recipe: snowfakery/updateUserRole.recipe.yml                       
 
     
 plans:
