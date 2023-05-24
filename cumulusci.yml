@@ -45,6 +45,16 @@ flows:
                 ui_options:
                     name: Adding Permission Set to Admin User    
 
+            4:
+                task: create_community
+                options:
+                    template: Grantmaking
+                    name: 244_Grantmaking
+                    url_path_prefix: s
+                ui_options:
+                    name: Create Grantmaking Community
+            
+
 
     np-core-grant:
         steps:
@@ -63,34 +73,50 @@ flows:
                 ui_options:
                     name: Adding Permission Set to Admin User       
 
-            3: 
+            3:
+                task: create_community
+                options:
+                    template: Grantmaking
+                    name: 244_Grantmaking
+                    url_path_prefix: s
+                ui_options:
+                    name: Create Grantmaking Community
+
+            4: 
                 task: deploy
                 options:
                     path: force-app/main/default
                 ui_options:
                     name: Deploy Metadata
 
-            4: 
+            5: 
                 task: deploy
                 options:
                     path: force-custom/experiences
                 ui_options:
                     name: Deploy Experience bundle
 
-            5:
+            6:
+                task: publish_community
+                options:
+                    name: G244_Grantmaking
+                ui_options:
+                    name: Publish Guest Community     
+
+            7:
                 task: deploy
                 options:
                     path: force-custom/appMenus
                 ui_options:
                     name: Deploy the metadata for experience bundle                    
-            6:
+            8:
                 task: query
                 options:
                     object: UserRole
                     query: select Id from UserRole where Name = 'CEO'
                     result_file: snowfakery/data/Role.csv
 
-            7:
+            9:
                 task: update_data
                 options:
                     object: User
@@ -99,36 +125,43 @@ flows:
 
     config_dev:
         steps:
+
             3:
+                task: deploy
+                options:
+                    path: force-custom/experiences
+                ui_options:
+                    name: Deploy the metadata for experience bundle
+            4:
+                task: publish_community
+                options:
+                    name: G244_Grantmaking
+                ui_options:
+                    name: Publish Guest Community     
+
+            5:
+                task: deploy
+                options:
+                    path: force-custom/appMenus
+                ui_options:
+                    name: Deploy the metadata for appMenus                 
+
+
+    dev_org:
+        steps:
+            3.1:
                 task: query
                 options:
                     object: UserRole
                     query: select Id from UserRole where Name = 'CEO'
                     result_file: snowfakery/data/Role.csv
 
-            4:
+            3.2:
                 task: update_data
                 options:
                     object: User
                     where: Alias = 'UUser' Or Alias = 'AUser'
-                    recipe: snowfakery/updateUserRole.recipe.yml  
-    dev_org:
-        steps:
-            3.1:
-                task: deploy
-                options:
-                    path: force-custom/experiences
-                ui_options:
-                    name: Deploy the metadata for experience bundle
-            
-            3.2:
-                task: deploy
-                options:
-                    path: force-custom/appMenus
-                ui_options:
-                    name: Deploy the metadata for experience bundle
-                     
-
+                    recipe: snowfakery/updateUserRole.recipe.yml    
     
 plans:
     install:
