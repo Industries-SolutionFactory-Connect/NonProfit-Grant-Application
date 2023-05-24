@@ -1,0 +1,261 @@
+extract:
+  Account:
+    fields:
+    - Description
+    - Fax
+    - Name
+    - AccountNumber
+    - Phone
+    - Rating
+    - Site
+    - AccountSource
+    - Type
+    - AnnualRevenue
+    - PersonAssistantName
+    - PersonAssistantPhone
+    - BillingCity
+    - BillingCountry
+    - BillingGeocodeAccuracy
+    - BillingLatitude
+    - BillingLongitude
+    - BillingState
+    - BillingStreet
+    - BillingPostalCode
+    - PersonBirthdate
+    - Jigsaw
+    - PersonDepartment
+    - PersonDoNotCall
+    - PersonEmail
+    - PersonEmailBouncedDate
+    - PersonEmailBouncedReason
+    - PersonHasOptedOutOfEmail
+    - NumberOfEmployees
+    - PersonHasOptedOutOfFax
+    - FirstName
+    - PersonGenderIdentity
+    - PersonHomePhone
+    - PersonIndividualId
+    - Industry
+    - LastName
+    - PersonLeadSource
+    - PersonMailingCity
+    - PersonMailingCountry
+    - PersonMailingGeocodeAccuracy
+    - PersonMailingLatitude
+    - PersonMailingLongitude
+    - PersonMailingState
+    - PersonMailingStreet
+    - PersonMailingPostalCode
+    - PersonMobilePhone
+    - PersonOtherCity
+    - PersonOtherCountry
+    - PersonOtherGeocodeAccuracy
+    - PersonOtherLatitude
+    - PersonOtherLongitude
+    - PersonOtherPhone
+    - PersonOtherState
+    - PersonOtherStreet
+    - PersonOtherPostalCode
+    - Ownership
+    - ParentId
+    - PersonPronouns
+    - RecordTypeId
+    - Salutation
+    - ShippingCity
+    - ShippingCountry
+    - ShippingGeocodeAccuracy
+    - ShippingLatitude
+    - ShippingLongitude
+    - ShippingState
+    - ShippingStreet
+    - ShippingPostalCode
+    - Sic
+    - SicDesc
+    - TickerSymbol
+    - PersonTitle
+    - Website
+  Individual:
+    fields:
+    - LastName
+  Case:
+    fields:
+    - AccountId
+    - ContactId
+    - Comments
+    - Description
+    - IsEscalated
+    - Language
+    - Origin
+    - Priority
+    - Reason
+    - Status
+    - Subject
+    - SuppliedCompany
+    - SuppliedEmail
+    - SuppliedName
+    - SuppliedPhone
+    - Type
+    - ParentId
+  Contact:
+    fields:
+    - AccountId
+    - AssistantName
+    - AssistantPhone
+    - Birthdate
+    - Fax
+    - Phone
+    - Description
+    - Jigsaw
+    - Department
+    - DoNotCall
+    - Email
+    - EmailBouncedDate
+    - EmailBouncedReason
+    - HasOptedOutOfEmail
+    - HasOptedOutOfFax
+    - FirstName
+    - GenderIdentity
+    - HomePhone
+    - IndividualId
+    - LastName
+    - LeadSource
+    - MailingCity
+    - MailingCountry
+    - MailingGeocodeAccuracy
+    - MailingLatitude
+    - MailingLongitude
+    - MailingState
+    - MailingStreet
+    - MailingPostalCode
+    - MobilePhone
+    - OtherCity
+    - OtherCountry
+    - OtherGeocodeAccuracy
+    - OtherLatitude
+    - OtherLongitude
+    - OtherPhone
+    - OtherState
+    - OtherStreet
+    - OtherPostalCode
+    - Pronouns
+    - ReportsToId
+    - Salutation
+    - Title
+  IndividualApplication:
+    fields:
+    - AccountId
+    - ContactId
+    - ApplicationCategory
+    - ApplicationName
+    - ApplicationReferenceNumber
+    - ApplicationType
+    - AppliedDate
+    - ApprovedDate
+    - Category
+    - Description
+    - FundingRequestPurpose
+    - InternalStatus
+    - IsOwnerEditable
+    - RequestedAmount
+    - RequirementsCompleteDate
+    - Status
+    - WasReturned
+    - FundingOpportunityId
+    - BenefitId
+    - BudgetId
+    - ApplicationCaseId
+    - SavedApplicationRefId
+  FundingAward:
+    fields:
+    - ContactId
+    - Amount
+    - AwardeeId
+    - BudgetId
+    - DecisionDate
+    - EndDate
+    - FundingOpportunityId
+    - IndividualApplicationId
+    - Name
+    - ParentFundingAwardId
+    - StartDate
+    - Status
+  Budget:
+    fields:
+    - Amount
+    - Description
+    - Name
+    - PeriodEndDate
+    - PeriodName
+    - PeriodStartDate
+    - Quantity
+    - Status
+    - Type
+    - ParentBudgetId
+  FundingOpportunity:
+    fields:
+    - ApplicationInstructions
+    - Description
+    - EndDate
+    - MaximumFundingAmount
+    - MinimumFundingAmount
+    - Name
+    - StartDate
+    - Status
+    - ApplicationTimelineId
+    - BudgetTemplateId
+  ApplicationTimeline:
+    fields:
+    - Name
+  Benefit:
+    fields:
+    - BenefitStatus
+    - CurrentMonthDisbursedQty
+    - CurrentYearAssignedQty
+    - CurrentYearDisbursedQty
+    - Description
+    - EndDateTime
+    - EnrollmentCount
+    - IsActive
+    - MaxBenefitAmount
+    - MinBenefitAmount
+    - Name
+    - PreviousMonthDisbursedQty
+    - PreviousYearAssignedQty
+    - PreviousYearDisbursedQty
+    - StartDateTime
+    - BenefitTypeId
+    - GoalDefinitionId
+    - ProgramId
+    - UnitId
+    - BenefitManagerId
+  PreliminaryApplicationRef:
+    fields:
+    - ApplicationName
+    - ApplicationType
+    - SavedApplicationUrl
+  Program:
+    fields:
+    - ActiveEnrolleeCount
+    - AdditionalContext
+    - CurrentMonthDisbCount
+    - CurrentYearDisbCount
+    - EndDate
+    - Name
+    - PreviousMonthDisbCount
+    - PreviousYearDisbCount
+    - StartDate
+    - Status
+    - Summary
+    - TotalEnrolleeCount
+    - UsageType
+  BenefitType:
+    fields:
+    - Category
+    - Description
+    - Name
+    - ProcessType
+    - Type
+    - UnitofMeasureId
+  GoalDefinition:
+    fields:
+    - Name
