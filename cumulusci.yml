@@ -44,15 +44,6 @@ flows:
                     user_alias: UUser, AUser
                 ui_options:
                     name: Adding Permission Set to Admin User    
-
-            4:
-                task: create_community
-                options:
-                    template: Grantmaking
-                    name: 244_Grantmaking
-                    url_path_prefix: s
-                ui_options:
-                    name: Create Grantmaking Community
             
 
 
@@ -73,50 +64,41 @@ flows:
                 ui_options:
                     name: Adding Permission Set to Admin User       
 
-            3:
-                task: create_community
-                options:
-                    template: Grantmaking
-                    name: 244_Grantmaking
-                    url_path_prefix: s
-                ui_options:
-                    name: Create Grantmaking Community
-
-            4: 
+            3: 
                 task: deploy
                 options:
                     path: force-app/main/default
                 ui_options:
                     name: Deploy Metadata
 
-            5: 
+            4: 
                 task: deploy
                 options:
                     path: force-custom/experiences
                 ui_options:
                     name: Deploy Experience bundle
 
-            6:
+            5:
                 task: publish_community
                 options:
-                    name: G244_Grantmaking
+                    name: 244_Grantmaking
                 ui_options:
                     name: Publish Guest Community     
 
-            7:
+            6:
                 task: deploy
                 options:
                     path: force-custom/appMenus
                 ui_options:
                     name: Deploy the metadata for experience bundle                    
-            8:
+            7:
                 task: query
                 options:
                     object: UserRole
                     query: select Id from UserRole where Name = 'CEO'
                     result_file: snowfakery/data/Role.csv
 
-            9:
+            8:
                 task: update_data
                 options:
                     object: User
@@ -135,7 +117,7 @@ flows:
             4:
                 task: publish_community
                 options:
-                    name: G244_Grantmaking
+                    name: 244_Grantmaking
                 ui_options:
                     name: Publish Guest Community     
 
