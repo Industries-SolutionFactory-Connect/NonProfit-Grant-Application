@@ -1,0 +1,148 @@
+{
+  "appPageId" : "1733b057-1426-468e-9d55-85a5f14d265c",
+  "componentName" : "siteforce:dynamicLayout",
+  "dataProviders" : [ ],
+  "id" : "459736ed-a22c-401d-998e-18416e7ae473",
+  "label" : "Home",
+  "regions" : [ {
+    "id" : "065be642-9dee-43d7-905c-eb4e47913918",
+    "regionName" : "header",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "background" : "background: rgba(0,0,0,0)",
+        "backgroundOverlay" : "rgba(0,0,0,0.5)",
+        "contentAreaWidth" : 100,
+        "sectionConfig" : {
+          "UUID" : "fc3a3316-cb27-4e89-aa42-f650f5fb6b4a",
+          "columns" : [ {
+            "UUID" : "cdb42ac3-dc39-4c5e-b240-4c3d42ef8d73",
+            "columnKey" : "col1",
+            "columnName" : "column 1",
+            "columnWidth" : "4",
+            "seedComponents" : [ {
+              "attributes" : {
+                "richTextValue" : "<p><strong style=\"font-size: 18px;\">Access to Nutritious Food</strong></p> <p>Provides resources to organizations working to improve access to healthy food options for communities facing hunger and poverty.</p>",
+                "sfdc:identifier" : "forceCommunity_richTextInline1"
+              },
+              "fqn" : "forceCommunity:richTextInline"
+            } ]
+          }, {
+            "UUID" : "6d711075-5c10-4940-8ae2-4a76eb3ac252",
+            "columnKey" : "col2",
+            "columnName" : "column 2",
+            "columnWidth" : "4",
+            "seedComponents" : [ {
+              "attributes" : {
+                "richTextValue" : "<p><strong style=\"font-size: 18px;\">Economic Empowerment</strong></p> <p>Supports initiatives aimed at helping low-income individuals and communities achieve economic stability and independence through job training, financial literacy programs, and other support services.</p>",
+                "sfdc:identifier" : "forceCommunity_richTextInline2"
+              },
+              "fqn" : "forceCommunity:richTextInline"
+            } ]
+          }, {
+            "UUID" : "3d6cd134-f036-45b1-b0bd-ae18c1c451d2",
+            "columnKey" : "col3",
+            "columnName" : "column 3",
+            "columnWidth" : "4",
+            "seedComponents" : [ {
+              "attributes" : {
+                "richTextValue" : "<p><strong style=\"font-size: 18px;\">How to Apply</strong></p> <p>The first step is to complete the online application. This process should take about 30 minutes and will involve providing information about your organization, how the grant funding will be used, and a high level budget for the grant.</p>",
+                "sfdc:identifier" : "forceCommunity_richTextInline3"
+              },
+              "fqn" : "forceCommunity:richTextInline"
+            } ]
+          } ]
+        },
+        "sectionHeight" : 32
+      },
+      "componentName" : "forceCommunity:section",
+      "id" : "fc3a3316-cb27-4e89-aa42-f650f5fb6b4a",
+      "regions" : [ {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p><strong style=\"font-size: 18px;\">Access to Nutritious Food</strong></p> <p>Provides resources to organizations working to improve access to healthy food options for communities facing hunger and poverty.</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "3c5dd8be-d108-4764-a436-d3045bab5c28",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "cdb42ac3-dc39-4c5e-b240-4c3d42ef8d73",
+        "regionLabel" : "column 1",
+        "regionName" : "col1",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p><strong style=\"font-size: 18px;\">Economic Empowerment</strong></p> <p>Supports initiatives aimed at helping low-income individuals and communities achieve economic stability and independence through job training, financial literacy programs, and other support services.</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "d266070d-0382-4402-a335-888b4c525a21",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "6d711075-5c10-4940-8ae2-4a76eb3ac252",
+        "regionLabel" : "column 2",
+        "regionName" : "col2",
+        "renditionMap" : { },
+        "type" : "region"
+      }, {
+        "components" : [ {
+          "componentAttributes" : {
+            "richTextValue" : "<p><strong style=\"font-size: 18px;\">How to Apply</strong></p> <p>The first step is to complete the online application. This process should take about 30 minutes and will involve providing information about your organization, how the grant funding will be used, and a high level budget for the grant.</p>"
+          },
+          "componentName" : "forceCommunity:richTextInline",
+          "id" : "1bd60016-fac4-4ac3-a277-485f34e58cc9",
+          "renderPriority" : "NEUTRAL",
+          "renditionMap" : { },
+          "type" : "component"
+        } ],
+        "id" : "3d6cd134-f036-45b1-b0bd-ae18c1c451d2",
+        "regionLabel" : "column 3",
+        "regionName" : "col3",
+        "renditionMap" : { },
+        "type" : "region"
+      } ],
+      "renderPriority" : "NEUTRAL",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "c9ec54c1-3744-4c18-94a9-808f511d0bd9",
+    "regionName" : "content",
+    "type" : "region"
+  }, {
+    "id" : "15c15696-af3e-4cd8-beec-5bf4c4c48ac2",
+    "regionName" : "sidebar",
+    "type" : "region"
+  }, {
+    "id" : "fab9b883-c298-48fb-910e-3e6c8cfa99e6",
+    "regionName" : "sidebarAlt",
+    "type" : "region"
+  }, {
+    "id" : "25b9afe1-61e6-4153-a8c2-3e7d817717bf",
+    "regionName" : "footer",
+    "type" : "region"
+  }, {
+    "components" : [ {
+      "componentAttributes" : {
+        "customHeadTags" : "",
+        "description" : "",
+        "title" : "Home"
+      },
+      "componentName" : "forceCommunity:seoAssistant",
+      "id" : "0870cd33-b209-4ea5-933f-0cac0471708a",
+      "renditionMap" : { },
+      "type" : "component"
+    } ],
+    "id" : "6f8157b7-87cf-4c51-babd-adf5689250dd",
+    "regionName" : "sfdcHiddenRegion",
+    "type" : "region"
+  } ],
+  "themeLayoutType" : "Home",
+  "type" : "view",
+  "viewType" : "home"
+}

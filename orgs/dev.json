@@ -8,6 +8,13 @@
     "chatterSettings": {
       "enableChatter": true
     },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true,
+      "enableOotbProfExtUserOpsEnable": true
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
+    },
     "userManagementSettings": {
       "enableNewProfileUI": true
     },
@@ -19,6 +26,25 @@
     },
     "languageSettings": {
       "enableTranslationWorkbench": true
+    },
+    "IndustriesSettings": {
+      "enableActionableList": true,
+      "enableBenefitAndGoalSharingPref": true,
+      "enableBenefitManagementPreference": true,
+      "enableEnhancedQuestionCreation": true,
+      "enableGrantmaking": true,
+      "enableInteractionRoleHierarchy": true,
+      "enableInteractionSummaryPref": true,
+      "enableInteractionSummaryRoleHierarchy": true
+    },
+    "SharingSettings": {
+      "enableAssetSharing": true,
+      "enableAccountRoleOptimization": true,
+      "enableExternalSharingModel": true,
+      "enablePortalUserCaseSharing": true,
+      "enableRestrictAccessLookupRecords": true,
+      "enableStandardReportVisibility": true
     }
+
   }
 }

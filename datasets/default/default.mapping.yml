@@ -1,0 +1,178 @@
+Insert Budget:
+  sf_object: Budget
+  table: Budget
+  fields:
+  - Amount
+  - Name
+  - PeriodEndDate
+  - PeriodStartDate
+  - Quantity
+  - Status
+  - Type
+Insert Program:
+  sf_object: Program
+  table: Program
+  fields:
+  - EndDate
+  - Name
+  - PreviousMonthDisbCount
+  - PreviousYearDisbCount
+  - StartDate
+  - Status
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - Name
+  - Phone
+  - Type
+  - BillingCity
+  - BillingCountry
+  - BillingState
+  - BillingStreet
+  - BillingPostalCode
+  - PersonBirthdate
+  - Jigsaw
+  - PersonDepartment
+  - PersonDoNotCall
+  - PersonEmail
+  - PersonEmailBouncedDate
+  - PersonEmailBouncedReason
+  - PersonHasOptedOutOfEmail
+  - PersonHasOptedOutOfFax
+  - Industry
+Insert FundingOpportunity:
+  sf_object: FundingOpportunity
+  table: FundingOpportunity
+  fields:
+  - ApplicationInstructions
+  - Description
+  - EndDate
+  - MaximumFundingAmount
+  - MinimumFundingAmount
+  - Name
+  - StartDate
+  - Status
+  lookups:
+    BudgetTemplateId:
+      table: Budget
+      key_field: BudgetTemplateId
+Insert BenefitType:
+  sf_object: BenefitType
+  table: BenefitType
+  fields:
+  - Name
+  - ProcessType
+  - Type
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+  - Phone
+  - DoNotCall
+  - Email
+  - HasOptedOutOfEmail
+  - HasOptedOutOfFax
+  - FirstName
+  - LastName
+  - MailingCity
+  - MailingCountry
+  - MailingState
+  - MailingStreet
+  - Pronouns
+  - Salutation
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+Insert Benefit:
+  sf_object: Benefit
+  table: Benefit
+  fields:
+  - BenefitStatus
+  - IsActive
+  - Name
+  lookups:
+    BenefitTypeId:
+      table: BenefitType
+      key_field: BenefitTypeId
+    ProgramId:
+      table: Program
+      key_field: ProgramId
+Insert Case:
+  sf_object: Case
+  table: Case
+  fields:
+  - IsEscalated
+  - Origin
+  - Priority
+  - Status
+  - Type
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+Insert IndividualApplication:
+  sf_object: IndividualApplication
+  table: IndividualApplication
+  fields:
+  - ApplicationCategory
+  - ApplicationName
+  - ApplicationReferenceNumber
+  - ApplicationType
+  - AppliedDate
+  - ApprovedDate
+  - Category
+  - Description
+  - FundingRequestPurpose
+  - InternalStatus
+  - IsOwnerEditable
+  - RequestedAmount
+  - RequirementsCompleteDate
+  - Status
+  - WasReturned
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+    FundingOpportunityId:
+      table: FundingOpportunity
+      key_field: FundingOpportunityId
+    BenefitId:
+      table: Benefit
+      key_field: BenefitId
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+    ApplicationCaseId:
+      table: Case
+      key_field: ApplicationCaseId
+Insert FundingAward:
+  sf_object: FundingAward
+  table: FundingAward
+  fields:
+  - Amount
+  - DecisionDate
+  - EndDate
+  - Name
+  - StartDate
+  - Status
+  lookups:
+    ContactId:
+      table: Contact
+      key_field: ContactId
+    AwardeeId:
+      table: Account
+      key_field: AwardeeId
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+    FundingOpportunityId:
+      table: FundingOpportunity
+      key_field: FundingOpportunityId

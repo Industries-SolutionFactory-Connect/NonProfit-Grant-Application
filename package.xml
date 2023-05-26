@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <!-- <types>
+        <members>Industries</members>
+        <name>Settings</name>
+    </types>
+    <types>
+        <members>Sharing</members>
+        <name>Settings</name>
+    </types>
+    <types>
+        <members>Org</members>
+        <name>Settings</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>CustomSite</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>ExperienceBundle</name>
+    </types>
+    <types>
+        <members>ApplicationDecision</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>ApplicationReview</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>ApplicationTimeline</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>BudgetAllocation</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>BudgetCategory</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>BudgetCategoryValue</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>BudgetPeriod</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FundingAward</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FundingAwardAmendment</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FundingAwardRequirement</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FundingDisbursement</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>FundingOpportunity</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>IndividualApplication</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>PreliminaryApplicationRef</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Program</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>Audience</name>
+    </types> -->
+    <!-- <types>
+        <members>*</members>
+        <name>SharingCriteriaRule</name>
+    </types>
+    <types>
+        <members>*</members>
+        <name>SharingOwnerRule</name>
+    </types> -->
+    <!-- <types>
+        <members>*</members>
+        <name>CustomSite</name>
+    </types> -->
+    <types>
+        <members>244_Grantmaking Profile</members>
+        <name>Profile</name>
+    </types>
+    <version>58.0</version>
+</Package>
+    

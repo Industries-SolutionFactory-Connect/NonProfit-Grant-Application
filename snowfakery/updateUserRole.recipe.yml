@@ -1,0 +1,7 @@
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
+- object: User
+  fields:
+    UserRoleId:
+      SalesforceQuery.find_record:
+        from: UserRole
+        where: Name = 'CEO'

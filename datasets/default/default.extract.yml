@@ -1,0 +1,122 @@
+extract:
+  Account:
+    fields:
+    - Name
+    - Phone
+    - Type
+    - BillingCity
+    - BillingCountry
+    - BillingState
+    - BillingStreet
+    - BillingPostalCode
+    - PersonBirthdate
+    - Jigsaw
+    - PersonDepartment
+    - PersonDoNotCall
+    - PersonEmail
+    - PersonEmailBouncedDate
+    - PersonEmailBouncedReason
+    - PersonHasOptedOutOfEmail
+    - PersonHasOptedOutOfFax
+    - Industry
+  Case:
+    fields:
+    - AccountId
+    - ContactId
+    - IsEscalated
+    - Origin
+    - Priority
+    - Status
+    - Type
+  Contact:
+    fields:
+    - AccountId
+    - Phone
+    - DoNotCall
+    - Email
+    - HasOptedOutOfEmail
+    - HasOptedOutOfFax
+    - FirstName
+    - LastName
+    - MailingCity
+    - MailingCountry
+    - MailingState
+    - MailingStreet
+    - Pronouns
+    - Salutation
+  IndividualApplication:
+    fields:
+    - AccountId
+    - ContactId
+    - ApplicationCategory
+    - ApplicationName
+    - ApplicationReferenceNumber
+    - ApplicationType
+    - AppliedDate
+    - ApprovedDate
+    - Category
+    - Description
+    - FundingRequestPurpose
+    - InternalStatus
+    - IsOwnerEditable
+    - RequestedAmount
+    - RequirementsCompleteDate
+    - Status
+    - WasReturned
+    - FundingOpportunityId
+    - BenefitId
+    - BudgetId
+    - ApplicationCaseId
+  FundingAward:
+    fields:
+    - ContactId
+    - Amount
+    - AwardeeId
+    - BudgetId
+    - DecisionDate
+    - EndDate
+    - FundingOpportunityId
+    - Name
+    - StartDate
+    - Status
+  Budget:
+    fields:
+    - Amount
+    - Name
+    - PeriodEndDate
+    - PeriodStartDate
+    - Quantity
+    - Status
+    - Type
+  FundingOpportunity:
+    fields:
+    - ApplicationInstructions
+    - Description
+    - EndDate
+    - MaximumFundingAmount
+    - MinimumFundingAmount
+    - Name
+    - StartDate
+    - Status
+    - BudgetTemplateId
+  Benefit:
+    fields:
+    - BenefitStatus
+    - IsActive
+    - Name
+    - BenefitTypeId
+    - ProgramId
+    - BenefitManagerId
+  Program:
+    fields:
+    - EndDate
+    - Name
+    - PreviousMonthDisbCount
+    - PreviousYearDisbCount
+    - StartDate
+    - Status
+  BenefitType:
+    fields:
+    - Name
+    - ProcessType
+    - Type
