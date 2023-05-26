@@ -96,10 +96,19 @@
         <members>*</members>
         <name>CustomSite</name>
     </types> -->
-    <types>
+    <!-- <types>
         <members>244_Grantmaking Profile</members>
         <name>Profile</name>
+    </types> -->
+    <types>
+        <members>*</members>
+        <name>SharingGuestRule</name>
     </types>
+    <types>
+        <members>*</members>
+        <name>SharingTerritoryRule</name>
+    </types>
+    
     <version>58.0</version>
 </Package>
     

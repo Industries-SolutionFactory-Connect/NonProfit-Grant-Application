@@ -147,6 +147,11 @@
         <trackHistory>false</trackHistory>
     </fields>
     <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>
+    <fields>
         <fullName>DecisionAuthorityId</fullName>
         <inlineHelpText>The user responsible for the Application Decision.</inlineHelpText>
         <trackFeedHistory>true</trackFeedHistory>

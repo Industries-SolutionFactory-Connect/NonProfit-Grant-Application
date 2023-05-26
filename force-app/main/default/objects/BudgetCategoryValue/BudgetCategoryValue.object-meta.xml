@@ -141,6 +141,11 @@
         <type>MasterDetail</type>
     </fields>
     <fields>
+        <fullName>Name</fullName>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+    </fields>    
+    <fields>
         <fullName>BudgetDivisionId</fullName>
         <trackFeedHistory>false</trackFeedHistory>
         <trackHistory>false</trackHistory>
