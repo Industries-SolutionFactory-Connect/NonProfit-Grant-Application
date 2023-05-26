@@ -1,87 +1,33 @@
-Insert Individual:
-  sf_object: Individual
-  table: Individual
-  fields:
-  - LastName
 Insert Budget:
   sf_object: Budget
   table: Budget
   fields:
   - Amount
-  - Description
   - Name
   - PeriodEndDate
-  - PeriodName
   - PeriodStartDate
   - Quantity
   - Status
   - Type
-  lookups:
-    ParentBudgetId:
-      table: Budget
-      key_field: ParentBudgetId
-      after: Insert Budget
-Insert ApplicationTimeline:
-  sf_object: ApplicationTimeline
-  table: ApplicationTimeline
-  fields:
-  - Name
-Insert PreliminaryApplicationRef:
-  sf_object: PreliminaryApplicationRef
-  table: PreliminaryApplicationRef
-  fields:
-  - ApplicationName
-  - ApplicationType
-  - SavedApplicationUrl
 Insert Program:
   sf_object: Program
   table: Program
   fields:
-  - ActiveEnrolleeCount
-  - AdditionalContext
-  - CurrentMonthDisbCount
-  - CurrentYearDisbCount
   - EndDate
   - Name
   - PreviousMonthDisbCount
   - PreviousYearDisbCount
   - StartDate
   - Status
-  - Summary
-  - TotalEnrolleeCount
-  - UsageType
-Insert GoalDefinition:
-  sf_object: GoalDefinition
-  table: GoalDefinition
-  fields:
-  - Name
-Insert UnitOfMeasure:
-  sf_object: UnitOfMeasure
-  table: UnitOfMeasure
-  fields:
-  - Name
-  - UnitCode
 Insert Account:
   sf_object: Account
   table: Account
   fields:
-  - Description
-  - Fax
   - Name
-  - AccountNumber
   - Phone
-  - Rating
-  - Site
-  - AccountSource
   - Type
-  - AnnualRevenue
-  - PersonAssistantName
-  - PersonAssistantPhone
   - BillingCity
   - BillingCountry
-  - BillingGeocodeAccuracy
-  - BillingLatitude
-  - BillingLongitude
   - BillingState
   - BillingStreet
   - BillingPostalCode
@@ -93,57 +39,8 @@ Insert Account:
   - PersonEmailBouncedDate
   - PersonEmailBouncedReason
   - PersonHasOptedOutOfEmail
-  - NumberOfEmployees
   - PersonHasOptedOutOfFax
-  - FirstName
-  - PersonGenderIdentity
-  - PersonHomePhone
   - Industry
-  - LastName
-  - PersonLeadSource
-  - PersonMailingCity
-  - PersonMailingCountry
-  - PersonMailingGeocodeAccuracy
-  - PersonMailingLatitude
-  - PersonMailingLongitude
-  - PersonMailingState
-  - PersonMailingStreet
-  - PersonMailingPostalCode
-  - PersonMobilePhone
-  - PersonOtherCity
-  - PersonOtherCountry
-  - PersonOtherGeocodeAccuracy
-  - PersonOtherLatitude
-  - PersonOtherLongitude
-  - PersonOtherPhone
-  - PersonOtherState
-  - PersonOtherStreet
-  - PersonOtherPostalCode
-  - Ownership
-  - PersonPronouns
-  - Salutation
-  - ShippingCity
-  - ShippingCountry
-  - ShippingGeocodeAccuracy
-  - ShippingLatitude
-  - ShippingLongitude
-  - ShippingState
-  - ShippingStreet
-  - ShippingPostalCode
-  - Sic
-  - SicDesc
-  - TickerSymbol
-  - PersonTitle
-  - Website
-  - RecordTypeId
-  lookups:
-    PersonIndividualId:
-      table: Individual
-      key_field: PersonIndividualId
-    ParentId:
-      table: Account
-      key_field: ParentId
-      after: Insert Account
 Insert FundingOpportunity:
   sf_object: FundingOpportunity
   table: FundingOpportunity
@@ -157,9 +54,6 @@ Insert FundingOpportunity:
   - StartDate
   - Status
   lookups:
-    ApplicationTimelineId:
-      table: ApplicationTimeline
-      key_field: ApplicationTimelineId
     BudgetTemplateId:
       table: Budget
       key_field: BudgetTemplateId
@@ -167,119 +61,52 @@ Insert BenefitType:
   sf_object: BenefitType
   table: BenefitType
   fields:
-  - Category
-  - Description
   - Name
   - ProcessType
   - Type
-  lookups:
-    UnitofMeasureId:
-      table: UnitOfMeasure
-      key_field: UnitofMeasureId
 Insert Contact:
   sf_object: Contact
   table: Contact
   fields:
-  - AssistantName
-  - AssistantPhone
-  - Birthdate
-  - Fax
   - Phone
-  - Description
-  - Jigsaw
-  - Department
   - DoNotCall
   - Email
-  - EmailBouncedDate
-  - EmailBouncedReason
   - HasOptedOutOfEmail
   - HasOptedOutOfFax
   - FirstName
-  - GenderIdentity
-  - HomePhone
   - LastName
-  - LeadSource
   - MailingCity
   - MailingCountry
-  - MailingGeocodeAccuracy
-  - MailingLatitude
-  - MailingLongitude
   - MailingState
   - MailingStreet
-  - MailingPostalCode
-  - MobilePhone
-  - OtherCity
-  - OtherCountry
-  - OtherGeocodeAccuracy
-  - OtherLatitude
-  - OtherLongitude
-  - OtherPhone
-  - OtherState
-  - OtherStreet
-  - OtherPostalCode
   - Pronouns
   - Salutation
-  - Title
   lookups:
     AccountId:
       table: Account
       key_field: AccountId
-    IndividualId:
-      table: Individual
-      key_field: IndividualId
-    ReportsToId:
-      table: Contact
-      key_field: ReportsToId
-      after: Insert Contact
 Insert Benefit:
   sf_object: Benefit
   table: Benefit
   fields:
   - BenefitStatus
-  - CurrentMonthDisbursedQty
-  - CurrentYearAssignedQty
-  - CurrentYearDisbursedQty
-  - Description
-  - EndDateTime
-  - EnrollmentCount
   - IsActive
-  - MaxBenefitAmount
-  - MinBenefitAmount
   - Name
-  - PreviousMonthDisbursedQty
-  - PreviousYearAssignedQty
-  - PreviousYearDisbursedQty
-  - StartDateTime
   lookups:
     BenefitTypeId:
       table: BenefitType
       key_field: BenefitTypeId
-    GoalDefinitionId:
-      table: GoalDefinition
-      key_field: GoalDefinitionId
     ProgramId:
       table: Program
       key_field: ProgramId
-    UnitId:
-      table: UnitOfMeasure
-      key_field: UnitId
 Insert Case:
   sf_object: Case
   table: Case
   fields:
-  - Comments
-  - Description
   - IsEscalated
-  - Language
   - Origin
   - Priority
-  - Reason
   - Status
-  - Subject
-  - SuppliedCompany
-  - SuppliedEmail
-  - SuppliedName
-  - SuppliedPhone
   - Type
   lookups:
     AccountId:
@@ -288,10 +115,6 @@ Insert Case:
     ContactId:
       table: Contact
       key_field: ContactId
-    ParentId:
-      table: Case
-      key_field: ParentId
-      after: Insert Case
 Insert IndividualApplication:
   sf_object: IndividualApplication
   table: IndividualApplication
@@ -330,9 +153,6 @@ Insert IndividualApplication:
     ApplicationCaseId:
       table: Case
       key_field: ApplicationCaseId
-    SavedApplicationRefId:
-      table: PreliminaryApplicationRef
-      key_field: SavedApplicationRefId
 Insert FundingAward:
   sf_object: FundingAward
   table: FundingAward
@@ -356,10 +176,3 @@ Insert FundingAward:
     FundingOpportunityId:
       table: FundingOpportunity
       key_field: FundingOpportunityId
-    IndividualApplicationId:
-      table: IndividualApplication
-      key_field: IndividualApplicationId
-    ParentFundingAwardId:
-      table: FundingAward
-      key_field: ParentFundingAwardId
-      after: Insert FundingAward

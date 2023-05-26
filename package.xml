@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-    <types>
+    <!-- <types>
         <members>Industries</members>
         <name>Settings</name>
     </types>
@@ -83,8 +83,23 @@
     <types>
         <members>*</members>
         <name>Audience</name>
+    </types> -->
+    <!-- <types>
+        <members>*</members>
+        <name>SharingCriteriaRule</name>
     </types>
-
+    <types>
+        <members>*</members>
+        <name>SharingOwnerRule</name>
+    </types> -->
+    <!-- <types>
+        <members>*</members>
+        <name>CustomSite</name>
+    </types> -->
+    <types>
+        <members>244_Grantmaking Profile</members>
+        <name>Profile</name>
+    </types>
     <version>58.0</version>
 </Package>
     

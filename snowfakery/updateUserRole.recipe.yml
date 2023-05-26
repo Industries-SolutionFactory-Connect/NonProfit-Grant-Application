@@ -1,7 +1,7 @@
-- plugin: snowfakery.standard_plugins.datasets.Dataset
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
 - object: User
   fields:
-    __role: 
-      Dataset.shuffle:
-        dataset: data/Role.csv
-    UserRoleId: ${{__role.id}}
+    UserRoleId:
+      SalesforceQuery.find_record:
+        from: UserRole
+        where: Name = 'CEO'
