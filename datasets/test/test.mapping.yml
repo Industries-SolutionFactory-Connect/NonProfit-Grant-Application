@@ -1,0 +1,339 @@
+# Editing this file is usually not recommended because it will
+# be overwritten the next time you re-capture this data.
+#
+# You can change this file's contents permanently by creating a
+# .load.yml file and re-capturing:
+#
+#  https://cumulusci.readthedocs.io/en/stable/data.html#extracting-and-loading-sample-datasets
+Insert Account:
+  sf_object: Account
+  table: Account
+  fields:
+  - AccountNumber
+  - AccountSource
+  - AnnualRevenue
+  - BillingCity
+  - BillingCountry
+  - BillingGeocodeAccuracy
+  - BillingLatitude
+  - BillingLongitude
+  - BillingPostalCode
+  - BillingState
+  - BillingStreet
+  - Description
+  - Fax
+  - FirstName
+  - Industry
+  - Jigsaw
+  - LastName
+  - Name
+  - NumberOfEmployees
+  - Ownership
+  - PersonAssistantName
+  - PersonAssistantPhone
+  - PersonBirthdate
+  - PersonDepartment
+  - PersonDoNotCall
+  - PersonEmail
+  - PersonEmailBouncedDate
+  - PersonEmailBouncedReason
+  - PersonGenderIdentity
+  - PersonHasOptedOutOfEmail
+  - PersonHasOptedOutOfFax
+  - PersonHomePhone
+  - PersonLeadSource
+  - PersonMailingCity
+  - PersonMailingCountry
+  - PersonMailingGeocodeAccuracy
+  - PersonMailingLatitude
+  - PersonMailingLongitude
+  - PersonMailingPostalCode
+  - PersonMailingState
+  - PersonMailingStreet
+  - PersonMobilePhone
+  - PersonOtherCity
+  - PersonOtherCountry
+  - PersonOtherGeocodeAccuracy
+  - PersonOtherLatitude
+  - PersonOtherLongitude
+  - PersonOtherPhone
+  - PersonOtherPostalCode
+  - PersonOtherState
+  - PersonOtherStreet
+  - PersonPronouns
+  - PersonTitle
+  - Phone
+  - Rating
+  - Salutation
+  - ShippingCity
+  - ShippingCountry
+  - ShippingGeocodeAccuracy
+  - ShippingLatitude
+  - ShippingLongitude
+  - ShippingPostalCode
+  - ShippingState
+  - ShippingStreet
+  - Sic
+  - SicDesc
+  - Site
+  - TickerSymbol
+  - Type
+  - Website
+Insert Program:
+  sf_object: Program
+  table: Program
+  fields:
+  - ActiveEnrolleeCount
+  - AdditionalContext
+  - CurrentMonthDisbCount
+  - CurrentYearDisbCount
+  - EndDate
+  - Name
+  - PreviousMonthDisbCount
+  - PreviousYearDisbCount
+  - StartDate
+  - Status
+  - Summary
+  - TotalEnrolleeCount
+  - UsageType
+Insert Case:
+  sf_object: Case
+  table: Case
+  fields:
+  - Comments
+  - Description
+  - IsEscalated
+  - Language
+  - Origin
+  - Priority
+  - Reason
+  - Status
+  - Subject
+  - SuppliedCompany
+  - SuppliedEmail
+  - SuppliedName
+  - SuppliedPhone
+  - Type
+Insert Contact:
+  sf_object: Contact
+  table: Contact
+  fields:
+  - AssistantName
+  - AssistantPhone
+  - Birthdate
+  - Department
+  - Description
+  - DoNotCall
+  - Email
+  - EmailBouncedDate
+  - EmailBouncedReason
+  - Fax
+  - FirstName
+  - GenderIdentity
+  - HasOptedOutOfEmail
+  - HasOptedOutOfFax
+  - HomePhone
+  - Jigsaw
+  - LastName
+  - LeadSource
+  - MailingCity
+  - MailingCountry
+  - MailingGeocodeAccuracy
+  - MailingLatitude
+  - MailingLongitude
+  - MailingPostalCode
+  - MailingState
+  - MailingStreet
+  - MobilePhone
+  - OtherCity
+  - OtherCountry
+  - OtherGeocodeAccuracy
+  - OtherLatitude
+  - OtherLongitude
+  - OtherPhone
+  - OtherPostalCode
+  - OtherState
+  - OtherStreet
+  - Phone
+  - Pronouns
+  - Salutation
+  - Title
+Insert FundingOpportunity:
+  sf_object: FundingOpportunity
+  table: FundingOpportunity
+  fields:
+  - ApplicationInstructions
+  - Description
+  - EndDate
+  - MaximumFundingAmount
+  - MinimumFundingAmount
+  - Name
+  - StartDate
+  - Status
+Insert PreliminaryApplicationRef:
+  sf_object: PreliminaryApplicationRef
+  table: PreliminaryApplicationRef
+  fields:
+  - ApplicationName
+  - ApplicationType
+  - SavedApplicationUrl
+Insert BenefitType:
+  sf_object: BenefitType
+  table: BenefitType
+  fields:
+  - Name
+  - ProcessType
+Insert FundingAward:
+  sf_object: FundingAward
+  table: FundingAward
+  fields:
+  - Name
+Insert Budget:
+  sf_object: Budget
+  table: Budget
+  fields:
+  - Amount
+  - Name
+  - Description
+  - PeriodEndDate
+  - PeriodName
+  - PeriodStartDate
+  - Quantity
+  - Status
+  - IsSubmitted
+  - Type
+  lookups:
+    AccountId:
+      table: Account
+      key_field: AccountId
+    ParentBudgetId:
+      table: Budget
+      key_field: ParentBudgetId
+      after: Insert Budget
+    ProgramId:
+      table: Program
+      key_field: ProgramId
+Insert FundingDisbursement:
+  sf_object: FundingDisbursement
+  table: FundingDisbursement
+  lookups:
+    FundingAwardId:
+      table: FundingAward
+      key_field: FundingAwardId
+Insert Benefit:
+  sf_object: Benefit
+  table: Benefit
+  fields:
+  - BenefitStatus
+  - CurrentMonthDisbursedQty
+  - CurrentYearAssignedQty
+  - CurrentYearDisbursedQty
+  - Description
+  - EndDateTime
+  - EnrollmentCount
+  - IsActive
+  - MaxBenefitAmount
+  - MinBenefitAmount
+  - Name
+  - PreviousMonthDisbursedQty
+  - PreviousYearAssignedQty
+  - PreviousYearDisbursedQty
+  - StartDateTime
+  lookups:
+    BenefitTypeId:
+      table: BenefitType
+      key_field: BenefitTypeId
+Insert IndividualApplication:
+  sf_object: IndividualApplication
+  table: IndividualApplication
+  fields:
+  - ApplicationName
+  - ApplicationReferenceNumber
+  - Status
+  - ApplicationCategory
+  - ApplicationType
+  - AppliedDate
+  - ApprovedDate
+  - Category
+  - Description
+  - FundingRequestPurpose
+  - IsOwnerEditable
+  - InternalStatus
+  - RequestedAmount
+  - RequirementsCompleteDate
+  - WasReturned
+  - IsSubmitted
+  lookups:
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+    AccountId:
+      table: Account
+      key_field: AccountId
+    BenefitId:
+      table: Benefit
+      key_field: BenefitId
+    ApplicationCaseId:
+      table: Case
+      key_field: ApplicationCaseId
+    ContactId:
+      table: Contact
+      key_field: ContactId
+    FundingOpportunityId:
+      table: FundingOpportunity
+      key_field: FundingOpportunityId
+    SavedApplicationRefId:
+      table: PreliminaryApplicationRef
+      key_field: SavedApplicationRefId
+Insert BudgetCategory:
+  sf_object: BudgetCategory
+  table: BudgetCategory
+  fields:
+  - Description
+  - Name
+  - Reason
+  - SequenceNumber
+  lookups:
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+Insert BudgetPeriod:
+  sf_object: BudgetPeriod
+  table: BudgetPeriod
+  fields:
+  - Name
+  - PeriodEndDate
+  - PeriodStartDate
+  - SequenceNumber
+  lookups:
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+Insert BudgetCategoryValue:
+  sf_object: BudgetCategoryValue
+  table: BudgetCategoryValue
+  fields:
+  - Amount
+  - Quantity
+  lookups:
+    BudgetCategoryId:
+      table: BudgetCategory
+      key_field: BudgetCategoryId
+Insert BudgetAllocation:
+  sf_object: BudgetAllocation
+  table: BudgetAllocation
+  fields:
+  - Amount
+  - Name
+  - Quantity
+  - Status
+  lookups:
+    BudgetCategoryValueId:
+      table: BudgetCategoryValue
+      key_field: BudgetCategoryValueId
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+    FundingDisbursementId:
+      table: FundingDisbursement
+      key_field: FundingDisbursementId

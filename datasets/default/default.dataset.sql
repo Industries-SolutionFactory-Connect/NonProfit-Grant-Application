@@ -12,21 +12,15 @@ CREATE TABLE "Account" (
 	"PersonBirthdate" VARCHAR(255), 
 	"Jigsaw" VARCHAR(255), 
 	"PersonDepartment" VARCHAR(255), 
-	"PersonDoNotCall" VARCHAR(255), 
-	"PersonEmail" VARCHAR(255), 
-	"PersonEmailBouncedDate" VARCHAR(255), 
-	"PersonEmailBouncedReason" VARCHAR(255), 
-	"PersonHasOptedOutOfEmail" VARCHAR(255), 
-	"PersonHasOptedOutOfFax" VARCHAR(255), 
 	"Industry" VARCHAR(255), 
 	"IsPersonAccount" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Account" VALUES(1,'Test Account','','','','','','','','','','','False','','','','False','False','','False');
-INSERT INTO "Account" VALUES(2,'Blackwell Account','401.549.7935','','West Ray','United States','Mississippi','55174 Victoria Lock','47821','','','','False','','','','False','False','','False');
-INSERT INTO "Account" VALUES(3,'SayTreesAlias','974.234.5616','Partner','','','','','','','','','False','','','','False','False','Environmental','False');
-INSERT INTO "Account" VALUES(4,'Acme','','','','','','','','','','','False','','','','False','False','','False');
-INSERT INTO "Account" VALUES(5,'Gonzalez Account','705.816.3985','','New Brandi','United States','Florida','9517 Gardner Station','83779','','','','False','','','','False','False','','False');
+INSERT INTO "Account" VALUES(1,'Test Account','','','','','','','','','','','','False');
+INSERT INTO "Account" VALUES(2,'Blackwell Account','401.549.7935','','West Ray','United States','Mississippi','55174 Victoria Lock','47821','','','','','False');
+INSERT INTO "Account" VALUES(3,'SayTreesAlias','974.234.5616','Partner','','','','','','','','','Environmental','False');
+INSERT INTO "Account" VALUES(4,'Acme','','','','','','','','','','','','False');
+INSERT INTO "Account" VALUES(5,'Gonzalez Account','705.816.3985','','New Brandi','United States','Florida','9517 Gardner Station','83779','','','','','False');
 CREATE TABLE "Account_rt_mapping" (
 	record_type_id VARCHAR(18) NOT NULL, 
 	developer_name VARCHAR(255), 
@@ -63,7 +57,51 @@ CREATE TABLE "Budget" (
 	"Type" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Budget" VALUES(1,'3000.0','Greenforce Budget','2023-08-31','2023-05-01','2.0','','Program');
+INSERT INTO "Budget" VALUES(1,'','Test Budget','','','','','');
+INSERT INTO "Budget" VALUES(2,'3000.0','Greenforce Budget','2023-08-31','2023-05-01','2.0','','Program');
+CREATE TABLE "BudgetAllocation" (
+	id INTEGER NOT NULL, 
+	"Amount" VARCHAR(255), 
+	"Name" VARCHAR(255), 
+	"Quantity" VARCHAR(255), 
+	"Status" VARCHAR(255), 
+	"BudgetCategoryValueId" VARCHAR(255), 
+	"BudgetId" VARCHAR(255), 
+	"FundingDisbursementId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "BudgetAllocation" VALUES(1,'','Budget for Blackwell Account','','Allocated','1','2','');
+INSERT INTO "BudgetAllocation" VALUES(2,'3000.0','Earthforce Championship Month','2000.0','Allocated','1','1','');
+CREATE TABLE "BudgetCategory" (
+	id INTEGER NOT NULL, 
+	"Description" VARCHAR(255), 
+	"Name" VARCHAR(255), 
+	"Reason" VARCHAR(255), 
+	"SequenceNumber" VARCHAR(255), 
+	"BudgetId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "BudgetCategory" VALUES(1,'','Budget for Labor','','','1');
+INSERT INTO "BudgetCategory" VALUES(2,'','Tree Plantation','','','2');
+CREATE TABLE "BudgetCategoryValue" (
+	id INTEGER NOT NULL, 
+	"Amount" VARCHAR(255), 
+	"Quantity" VARCHAR(255), 
+	"BudgetCategoryId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "BudgetCategoryValue" VALUES(1,'3000.0','1000.0','2');
+CREATE TABLE "BudgetPeriod" (
+	id INTEGER NOT NULL, 
+	"Name" VARCHAR(255), 
+	"PeriodEndDate" VARCHAR(255), 
+	"PeriodStartDate" VARCHAR(255), 
+	"SequenceNumber" VARCHAR(255), 
+	"BudgetId" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "BudgetPeriod" VALUES(1,'Labor during Tree Plantation','2023-06-30','2023-06-01','','1');
+INSERT INTO "BudgetPeriod" VALUES(2,'Tree Plantation for Blackwell Account','2023-06-30','2023-06-01','','2');
 CREATE TABLE "Case" (
 	id INTEGER NOT NULL, 
 	"IsEscalated" VARCHAR(255), 
@@ -79,28 +117,39 @@ INSERT INTO "Case" VALUES(1,'False','Email','Medium','New','Question','2','4');
 CREATE TABLE "Contact" (
 	id INTEGER NOT NULL, 
 	"Phone" VARCHAR(255), 
-	"DoNotCall" VARCHAR(255), 
 	"Email" VARCHAR(255), 
-	"HasOptedOutOfEmail" VARCHAR(255), 
-	"HasOptedOutOfFax" VARCHAR(255), 
 	"FirstName" VARCHAR(255), 
 	"LastName" VARCHAR(255), 
 	"MailingCity" VARCHAR(255), 
 	"MailingCountry" VARCHAR(255), 
 	"MailingState" VARCHAR(255), 
 	"MailingStreet" VARCHAR(255), 
-	"Pronouns" VARCHAR(255), 
+	"OtherPostalCode" VARCHAR(255), 
 	"Salutation" VARCHAR(255), 
 	"IsPersonAccount" VARCHAR(255), 
 	"AccountId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "Contact" VALUES(1,'705.816.3985','False','lauren.gonzalez@fakeemail.demo','False','False','Lauren','Gonzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Mr.','False','5');
-INSERT INTO "Contact" VALUES(2,'705.816.3987','False','makayla.gonzalez@fakeemail.demo','False','False','Makayla','Gonzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Ms.','False','5');
-INSERT INTO "Contact" VALUES(3,'401.549.7935','False','timothy.blackwell@fakeemail.demo','False','False','Timothy','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Mr.','False','2');
-INSERT INTO "Contact" VALUES(4,'401.549.7937','False','renee.blackwell@fakeemail.demo','False','False','Renee','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Ms.','False','2');
-INSERT INTO "Contact" VALUES(5,'401.549.7938','False','kyle.blackwell@fakeemail.demo','False','False','Kyle','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Ms.','False','2');
-INSERT INTO "Contact" VALUES(6,'705.816.3986','False','tammie.gonzalez@fakeemail.demo','False','False','Tammie','Golzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Ms.','False','5');
+INSERT INTO "Contact" VALUES(1,'705.816.3985','lauren.gonzalez@fakeemail.demo','Lauren','Gonzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Mr.','False','5');
+INSERT INTO "Contact" VALUES(2,'705.816.3987','makayla.gonzalez@fakeemail.demo','Makayla','Gonzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Ms.','False','5');
+INSERT INTO "Contact" VALUES(3,'401.549.7935','timothy.blackwell@fakeemail.demo','Timothy','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Mr.','False','2');
+INSERT INTO "Contact" VALUES(4,'401.549.7937','renee.blackwell@fakeemail.demo','Renee','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Ms.','False','2');
+INSERT INTO "Contact" VALUES(5,'401.549.7938','kyle.blackwell@fakeemail.demo','Kyle','Blackwell','West Ray','United States','Mississippi','55174 Victoria Lock','47821','Ms.','False','2');
+INSERT INTO "Contact" VALUES(6,'705.816.3986','tammie.gonzalez@fakeemail.demo','Tammie','Golzalez','New Brandi','United States','Florida','9517 Gardner Station','83779','Ms.','False','5');
+
+CREATE TABLE "Program" (
+	id INTEGER NOT NULL, 
+	"EndDate" VARCHAR(255), 
+	"Name" VARCHAR(255), 
+	"PreviousMonthDisbCount" VARCHAR(255), 
+	"PreviousYearDisbCount" VARCHAR(255), 
+	"StartDate" VARCHAR(255), 
+	"Status" VARCHAR(255), 
+	PRIMARY KEY (id)
+);
+INSERT INTO "Program" VALUES(1,'','Job coaching program','','','2023-01-03','Active');
+INSERT INTO "Program" VALUES(2,'2023-07-31','1M Tree Plantation','','','2023-05-01','Active');
+
 CREATE TABLE "FundingAward" (
 	id INTEGER NOT NULL, 
 	"Amount" VARCHAR(255), 
@@ -113,9 +162,10 @@ CREATE TABLE "FundingAward" (
 	"BudgetId" VARCHAR(255), 
 	"ContactId" VARCHAR(255), 
 	"FundingOpportunityId" VARCHAR(255), 
+	"ProgramId" VARCHAR(255),
 	PRIMARY KEY (id)
 );
-INSERT INTO "FundingAward" VALUES(1,'2000.0','2023-05-11T19:00:00.000+0000','','Funding Award to SayTreesAlias','','Active','3','1','2','1');
+INSERT INTO "FundingAward" VALUES(1,'2000.0','2023-05-11T19:00:00.000+0000','','Funding Award to SayTreesAlias','','Active','3','2','2','1','2');
 CREATE TABLE "FundingOpportunity" (
 	id INTEGER NOT NULL, 
 	"ApplicationInstructions" VARCHAR(255), 
@@ -157,18 +207,7 @@ CREATE TABLE "IndividualApplication" (
 	"FundingOpportunityId" VARCHAR(255), 
 	PRIMARY KEY (id)
 );
-INSERT INTO "IndividualApplication" VALUES(1,'','','','','2023-05-05T19:00:00.000+0000','','Grant Application','','','','False','','','In Progress','False','1','','','','','');
-INSERT INTO "IndividualApplication" VALUES(2,'Basic','','','New','2023-05-11T19:00:00.000+0000','','Grant Application','','','','False','','','In Progress','False','2','1','','','','');
-CREATE TABLE "Program" (
-	id INTEGER NOT NULL, 
-	"EndDate" VARCHAR(255), 
-	"Name" VARCHAR(255), 
-	"PreviousMonthDisbCount" VARCHAR(255), 
-	"PreviousYearDisbCount" VARCHAR(255), 
-	"StartDate" VARCHAR(255), 
-	"Status" VARCHAR(255), 
-	PRIMARY KEY (id)
-);
-INSERT INTO "Program" VALUES(1,'','Job coaching program','','','2023-01-03','Active');
-INSERT INTO "Program" VALUES(2,'2023-07-31','1M Tree Plantation','','','2023-05-01','Active');
+INSERT INTO "IndividualApplication" VALUES(1,'','','','','2023-05-05T19:00:00.000+0000','','Grant Application','','','','False','','','In Progress','False','1','','','1','','');
+INSERT INTO "IndividualApplication" VALUES(2,'Basic','','','New','2023-05-11T19:00:00.000+0000','','Grant Application','','','','False','','','In Progress','False','2','1','','2','','');
+
 COMMIT;

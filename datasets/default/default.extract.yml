@@ -12,12 +12,6 @@ extract:
     - PersonBirthdate
     - Jigsaw
     - PersonDepartment
-    - PersonDoNotCall
-    - PersonEmail
-    - PersonEmailBouncedDate
-    - PersonEmailBouncedReason
-    - PersonHasOptedOutOfEmail
-    - PersonHasOptedOutOfFax
     - Industry
   Case:
     fields:
@@ -32,17 +26,14 @@ extract:
     fields:
     - AccountId
     - Phone
-    - DoNotCall
     - Email
-    - HasOptedOutOfEmail
-    - HasOptedOutOfFax
     - FirstName
     - LastName
     - MailingCity
     - MailingCountry
     - MailingState
+    - OtherPostalCode
     - MailingStreet
-    - Pronouns
     - Salutation
   IndividualApplication:
     fields:
@@ -79,6 +70,7 @@ extract:
     - Name
     - StartDate
     - Status
+    - ProgramId
   Budget:
     fields:
     - Amount
@@ -120,3 +112,30 @@ extract:
     - Name
     - ProcessType
     - Type
+BudgetAllocation:
+    fields:
+    - Amount
+    - Name
+    - BudgetCategoryValueId
+    - BudgetId
+    - FundingDisbursementId
+    - Quantity
+    - Status
+  BudgetCategoryValue:
+    fields:
+    - Amount
+    - Quantity
+  BudgetCategory:
+    fields:
+    - BudgetId
+    - Description
+    - Name
+    - Reason
+    - SequenceNumber
+  BudgetPeriod:
+    fields:
+    - BudgetId
+    - Name
+    - PeriodEndDate
+    - PeriodStartDate
+    - SequenceNumber

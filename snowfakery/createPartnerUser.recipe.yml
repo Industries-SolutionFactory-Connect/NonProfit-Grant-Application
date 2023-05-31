@@ -1,0 +1,21 @@
+- plugin: snowfakery.standard_plugins.Salesforce
+- plugin: snowfakery.standard_plugins.UniqueId
+- plugin: snowfakery.standard_plugins.Salesforce.SalesforceQuery
+- object: User 
+  count: 1
+  fields: 
+    FirstName: Kyle
+    LastName: Blackwell
+    Username: kyle.blackwell@fakeemail.demo
+    Email: kyle.blackwell@fakeemail.demo
+    Alias: kblac
+    TimeZoneSidKey: America/Los_Angeles
+    LocaleSidKey: en_US
+    EmailEncodingKey: UTF-8
+    LanguageLocaleKey: en_US
+    ProfileId: 
+      Salesforce.ProfileId: Customer Community Plus User
+    ContactId:
+      SalesforceQuery.find_record:
+        from: Contact
+        where: FirstName = 'Kyle'  

@@ -34,12 +34,6 @@ Insert Account:
   - PersonBirthdate
   - Jigsaw
   - PersonDepartment
-  - PersonDoNotCall
-  - PersonEmail
-  - PersonEmailBouncedDate
-  - PersonEmailBouncedReason
-  - PersonHasOptedOutOfEmail
-  - PersonHasOptedOutOfFax
   - Industry
 Insert FundingOpportunity:
   sf_object: FundingOpportunity
@@ -69,17 +63,14 @@ Insert Contact:
   table: Contact
   fields:
   - Phone
-  - DoNotCall
   - Email
-  - HasOptedOutOfEmail
-  - HasOptedOutOfFax
   - FirstName
   - LastName
   - MailingCity
   - MailingCountry
   - MailingState
+  - OtherPostalCode
   - MailingStreet
-  - Pronouns
   - Salutation
   lookups:
     AccountId:
@@ -176,3 +167,56 @@ Insert FundingAward:
     FundingOpportunityId:
       table: FundingOpportunity
       key_field: FundingOpportunityId
+    ProgramId:
+      table: Program
+      key_field: ProgramId    
+
+Insert BudgetCategory:
+  sf_object: BudgetCategory
+  table: BudgetCategory
+  fields:
+  - Description
+  - Name
+  - Reason
+  - SequenceNumber
+  lookups:
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+Insert BudgetPeriod:
+  sf_object: BudgetPeriod
+  table: BudgetPeriod
+  fields:
+  - Name
+  - PeriodEndDate
+  - PeriodStartDate
+  - SequenceNumber
+  lookups:
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
+Insert BudgetCategoryValue:
+  sf_object: BudgetCategoryValue
+  table: BudgetCategoryValue
+  fields:
+  - Amount
+  - Quantity
+  lookups:
+    BudgetCategoryId:
+      table: BudgetCategory
+      key_field: BudgetCategoryId
+Insert BudgetAllocation:
+  sf_object: BudgetAllocation
+  table: BudgetAllocation
+  fields:
+  - Amount
+  - Name
+  - Quantity
+  - Status
+  lookups:
+    BudgetCategoryValueId:
+      table: BudgetCategoryValue
+      key_field: BudgetCategoryValueId
+    BudgetId:
+      table: Budget
+      key_field: BudgetId
