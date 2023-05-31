@@ -57,7 +57,7 @@ flows:
             2:
                 task: util_sleep
                 options:
-                    seconds: 60
+                    seconds: 120
             3:
                 task: publish_community
                 options:
@@ -76,6 +76,11 @@ flows:
                     path: force-custom/profiles
                 ui_options:
                     name: Deploy Metadata for Grantmaking profile
+
+            6:
+                task: generate_and_load_from_yaml
+                options:
+                    generator_yaml: snowfakery/createPartnerUser.recipe.yml       
     config_dev:
         steps:
             3:
@@ -109,31 +114,31 @@ flows:
                 ui_options:
                     name: Adding Permission Set to Admin User       
 
-            3:
-                task: update_data
-                options:
-                    object: User
-                    where: Profile.Name = 'System Administrator'
-                    recipe: snowfakery/updateUserRole.recipe.yml  
-
-            4: 
+            3: 
                 task: deploy
                 options:
                     path: force-app/main/default/
                 ui_options:
                     name: Deploy Metadata
 
-            5: 
+            4: 
                 task: deploy
                 options:
                     path: force-custom/experiences
                 ui_options:
                     name: Deploy Experience bundle
 
+            5:
+                task: update_data
+                options:
+                    object: User
+                    where: Profile.Name = 'System Administrator'
+                    recipe: snowfakery/updateUserRole.recipe.yml  
+
             6:
                 task: util_sleep
                 options:
-                    seconds: 60
+                    seconds: 120
 
             7:
                 task: publish_community
@@ -162,7 +167,13 @@ flows:
                 options:
                     path: force-custom/appMenus
                 ui_options:
-                    name: Deploy the metadata for appMenus    
+                    name: Deploy the metadata for appMenus 
+            
+            11:
+                task: generate_and_load_from_yaml
+                options:
+                    generator_yaml: snowfakery/createPartnerUser.recipe.yml
+
 plans:
     install:
         slug: install
