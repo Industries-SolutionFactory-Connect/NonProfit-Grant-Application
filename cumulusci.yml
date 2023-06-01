@@ -53,34 +53,33 @@ flows:
                 options:
                     path: force-custom/experiences
                 ui_options:
-                    name: Deploy the metadata for experience bundle
+                    name: Deploy the metadata for experience Bundle
             2:
                 task: util_sleep
                 options:
                     seconds: 120
+                ui_options:
+                    name: Wait before Publish Community
             3:
                 task: publish_community
                 options:
                     name: 244_Grantmaking
                 ui_options:
                     name: Publish Grantmaking Community     
-            4:
-                task: deploy
-                options:
-                    path: force-custom/appMenus
-                ui_options:
-                    name: Deploy the metadata for appMenus
-            5: 
+
+            4: 
                 task: deploy
                 options:
                     path: force-custom/profiles
                 ui_options:
                     name: Deploy Metadata for Grantmaking profile
 
-            6:
+            5:
                 task: generate_and_load_from_yaml
                 options:
-                    generator_yaml: snowfakery/createPartnerUser.recipe.yml       
+                    generator_yaml: snowfakery/createCustomerUser.recipe.yml
+                ui_options:
+                    name: Create Customer Community User 
     config_dev:
         steps:
             3:
@@ -89,6 +88,8 @@ flows:
                     object: User
                     where: Alias = 'UUser' Or Alias = 'AUser'
                     recipe: snowfakery/updateUserRole.recipe.yml
+                ui_options:
+                    name: Assign Role to Admin User
 
     dev_org:
         steps:
@@ -126,7 +127,7 @@ flows:
                 options:
                     path: force-custom/experiences
                 ui_options:
-                    name: Deploy Experience bundle
+                    name: Deploy Experience Bundle
 
             5:
                 task: update_data
@@ -134,11 +135,15 @@ flows:
                     object: User
                     where: Profile.Name = 'System Administrator'
                     recipe: snowfakery/updateUserRole.recipe.yml  
+                ui_options:
+                    name: Assign Role to Admin User
 
             6:
                 task: util_sleep
                 options:
                     seconds: 120
+                ui_options:
+                    name: Wait before Publish Community
 
             7:
                 task: publish_community
@@ -163,16 +168,11 @@ flows:
                     name: Deploy Metadata for Grantmaking profile
 
             10:
-                task: deploy
-                options:
-                    path: force-custom/appMenus
-                ui_options:
-                    name: Deploy the metadata for appMenus 
-            
-            11:
                 task: generate_and_load_from_yaml
                 options:
-                    generator_yaml: snowfakery/createPartnerUser.recipe.yml
+                    generator_yaml: snowfakery/createCustomerUser.recipe.yml
+                ui_options:
+                    name: Create Customer Community User
 
 plans:
     install:
