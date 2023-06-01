@@ -187,7 +187,7 @@ plans:
             - when: "not org_config.is_person_accounts_enabled"
               action: error
               message: "Non Profit Cloud requires Person Accounts. Please activate the Person Accounts feature and try again."
-            - when: "'Grantmaking User' not in tasks.get_available_permission_set_licenses()"
+            - when: "'GrantmakingPsl' not in tasks.get_available_permission_set_licenses()"
               action: error
               message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
         steps:
