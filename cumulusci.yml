@@ -177,7 +177,7 @@ flows:
 plans:
     install:
         slug: install
-        title: NonProfit Grantmaking
+        title: Grantmaking for Nonprofits
         tier: primary
         is_listed: True
         preflight_message: "This will install Non Profit Grantmaking Module"
@@ -187,8 +187,7 @@ plans:
             - when: "not org_config.is_person_accounts_enabled"
               action: error
               message: "Non Profit Cloud requires Person Accounts. Please activate the Person Accounts feature and try again."
-              message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
-            - when: "'GrantmakingManager' not in tasks.get_available_permission_set_licenses()"
+            - when: "'Grantmaking User' not in tasks.get_available_permission_set_licenses()"
               action: error
               message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
         steps:
