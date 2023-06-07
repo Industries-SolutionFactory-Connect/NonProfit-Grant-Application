@@ -190,6 +190,15 @@ plans:
             - when: "'GrantmakingPsl' not in tasks.get_available_permission_set_licenses()"
               action: error
               message: "You need GrantmakingManager licence to use this feature. Contact your Administrator."
+            - when: "'GrantmakingForExperienceCloudPsl' not in tasks.get_available_permission_set_licenses()"
+              action: error
+              message: "You need GrantmakingForExperienceCloudPsl licence to use this feature. Contact your Administrator."
+            - when: "'PID_Customer_Community_Plus' not in tasks.get_available_licenses()"
+              action: error
+              message: "You need Customer_Community_Plus licence to use this feature. Contact your Administrator."
+            - when: "'PID_Customer_Community_Plus_Login' not in tasks.get_available_licenses()"
+              action: error
+              message: "You need Customer_Community_Plus_Login licence to use this feature. Contact your Administrator."                                                       
         steps:
             1:
                 flow: np-core-grant
